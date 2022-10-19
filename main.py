@@ -32,9 +32,7 @@ def vocabulaire(N, chemins, fichier, methode = "kmeans"):
 
                 max = dist
     if fichier is not None:
-        #numpy.savetxt(fichier, )
-        with open(fichier, "w") as f:
-            f.write(kmeans.cluster_centers_)
+        np.savetxt(fichier, kmeans.cluster_centers_, delimiter=',')
 
     return kmeans.inertia_/N, max
 
@@ -42,5 +40,4 @@ def vocabulaire(N, chemins, fichier, methode = "kmeans"):
 N = 100
 chemins = ["Img/pigeon/*.jpg", "Img/pizza/*.jpg", "Img/scorpion/*.jpg", "Img/sunflower/*.jpg"]
 fichier = "vocabulaire.txt"
-vocabulaire(N, chemins, fichier)
-print("aaaa")
+print(vocabulaire(N, chemins, fichier))
